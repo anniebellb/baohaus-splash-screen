@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Baohaus Intro</title>
+  <title>Baohouse Intro</title>
   <link rel="stylesheet" href="styles.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Merienda+One&family=Yuji+Boku&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Intro Screen -->
   <div id="intro-screen">
     <img src="assets/Intro screen logo.png" alt="Logo" id="intro-logo">
     <p class="main-text">Collect your first Dumpling Point to start</p>
@@ -19,22 +17,12 @@
     <p class="sub-text">You’ll see dumpling points at the top of the screen during your shift</p>
   </div>
 
-  <!-- Splash Screen -->
   <div id="splash-screen" class="hidden">
-    <div class="container">
-      <img src="assets/Background.png" class="bg" alt="background"/>
-      <img src="assets/Rocks Bottom.png" class="rocks" alt="rocks"/>
-      <img src="assets/Lanterns Left.png" class="lantern left" alt="lantern left"/>
-      <img src="assets/Lanterns Right.png" class="lantern right" alt="lantern right"/>
-      <div class="sign-wrapper">
-        <img src="assets/Sign.png" class="sign" alt="sign"/>
-        <button id="enter-btn">Enter</button>
-      </div>
-      <p class="hover-hint">Hover anywhere to start music</p>
-    </div>
+    <!-- Splash content will be faded in by JS -->
+    <!-- Placeholder for splash screen content -->
   </div>
 
-  <audio id="bg-music" src="assets/audio/Baohaus Music Intro Screen copy.mp3" loop></audio>
+  <audio id="bg-music" src="audio/Baohaus Music Intro Screen.mp3"></audio>
   <script src="main.js"></script>
 </body>
 </html>
