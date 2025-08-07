@@ -10,17 +10,29 @@ document.addEventListener('DOMContentLoaded', () => {
     dumpling.classList.add('clicked');
     plusOne.classList.add('show');
 
-    setTimeout(() => {
-      plusOne.classList.remove('show');
-    }, 1000);
-
     bgMusic.play().catch(e => console.warn('Autoplay blocked:', e));
 
-    introScreen.classList.add('fade-out');
+    setTimeout(() => {
+      plusOne.classList.remove('show');
+      introScreen.classList.add('fade-out');
+    }, 2000);
+
     setTimeout(() => {
       introScreen.style.display = 'none';
       splashScreen.classList.remove('hidden');
       splashScreen.classList.add('fade-in');
-    }, 1000);
+    }, 2600);
   });
+
+  const enterBtn = document.getElementById("enter-btn");
+  if (enterBtn) {
+    enterBtn.addEventListener("click", () => {
+      bgMusic.pause();
+      bgMusic.currentTime = 0;
+      document.querySelector(".container").classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = "https://anniebellb.github.io/Duke-AI-Student-Smart-Search/#/";
+      }, 300);
+    });
+  }
 });
