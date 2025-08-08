@@ -184,21 +184,23 @@ body {
 
 /* make the sign larger so it fills more of the screen and touches the top */
 #splash-screen .sign {
-  /* Make the sign responsive: fill a reasonable portion of the width so it
-   * doesn't collide with the lanterns even when its rope touches the top.
-   * The max-width prevents it from being too large on wide screens. */
-  width: 80%;
-  max-width: 800px;
+  /* Make the sign responsive: fill more of the viewport width while
+   * leaving enough horizontal space for the hanging lanterns.  A larger
+   * max-width allows the sign to scale up on large monitors and 4K
+   * displays without appearing tiny. */
+  width: 88%;
+  max-width: 1600px;
   height: auto;
 }
 
 /* style and position the enter button on the sign underneath the text */
 #enter-btn {
   position: absolute;
-  /* Place the button near the bottom of the sign.  The top value controls
-   * how far down the button sits.  Adjusting this value spaces the
-   * button evenly between the sign’s top text and the red base. */
-  top: 80%;
+  /* Place the button so that it sits roughly midway between the printed
+   * “Welcome to baohaus” text and the red wooden base of the sign.  A
+   * top value of around two‑thirds positions it in this middle space.
+   * Adjustments for small screens are provided in the media query below. */
+  top: 68%;
   left: 50%;
   transform: translateX(-50%);
   padding: 8px 20px;
@@ -210,6 +212,8 @@ body {
   border-radius: 6px;
   cursor: pointer;
   z-index: 1;
+  /* Ensure the button text uses the Merienda One font */
+  font-family: 'Merienda One', cursive;
 }
 
 /* Responsive adjustments for small screens */
@@ -219,11 +223,15 @@ body {
     top: 0;
   }
   #splash-screen .sign {
-    width: 80%;
+    /* Slightly reduce the width on very small screens to prevent the
+     * sign from colliding with the lanterns. */
+    width: 85%;
     max-width: 600px;
   }
   #enter-btn {
-    top: 85%;
+    /* Lower the button further down the sign on small screens so it
+     * remains centred between the welcome text and the wooden base. */
+    top: 75%;
     font-size: 16px;
     padding: 6px 18px;
   }
