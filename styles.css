@@ -95,6 +95,34 @@ body {
 }
 
 /*
+ * Slide animations for splash-screen elements.  Each animation moves an
+ * element into place from off‑screen while fading it in.  The
+ * accompanying rules below apply these animations with specific
+ * delays to the rocks, lanterns and sign so that they appear in
+ * sequence.
+ */
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to   { transform: translateX(0);      opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);      opacity: 1; }
+}
+
+/*
  * Layout rules for the second splash screen.
  * Without explicit positioning the splash screen elements sit below
  * the intro content in the normal document flow.  Because the body has
@@ -146,6 +174,14 @@ body {
   left: 0;
   width: 100%;
   height: auto;
+
+  /* Animate the rocks sliding up into view with a delay.  The
+   * transform property is reset in the keyframes.  Animation fill mode
+   * forwards ensures the final state persists after the animation
+   * completes. */
+  transform: translateY(100%);
+  animation: slideUp 1s ease-out forwards;
+  animation-delay: 3s;
 }
 
 /* position the left and right lanterns near the top corners */
@@ -159,6 +195,11 @@ body {
   /* Reduce lantern size slightly so they don’t crowd the sign */
   width: 16%;
   max-width: 200px;
+
+  /* Slide the left lantern in from the left side after a delay */
+  transform: translateX(-100%);
+  animation: slideLeft 1s ease-out forwards;
+  animation-delay: 6s;
 }
 
 #splash-screen .lantern.right {
@@ -167,6 +208,11 @@ body {
   right: 3%;
   width: 16%;
   max-width: 200px;
+
+  /* Slide the right lantern in from the right side after a delay */
+  transform: translateX(100%);
+  animation: slideRight 1s ease-out forwards;
+  animation-delay: 6s;
 }
 
 /* centre the sign near the bottom of the splash screen */
@@ -176,11 +222,17 @@ body {
    * This ensures the rope stays anchored at the top on all screen sizes. */
   top: 0;
   left: 50%;
-  transform: translateX(-50%);
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  /* Slide the entire sign (with its button) down from the top after
+   * other elements have animated in.  The transform set here will be
+   * overridden by the keyframes. */
+  transform: translateX(-50%) translateY(-100%);
+  animation: slideDown 1s ease-out forwards;
+  animation-delay: 12s;
 }
 
 /* make the sign larger so it fills more of the screen and touches the top */
