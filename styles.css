@@ -171,8 +171,11 @@ body {
 /* centre the sign near the bottom of the splash screen */
 #splash-screen .sign-wrapper {
   position: absolute;
-  /* Place the sign at the very top of the splash screen and centre it */
-  top: 0;
+  /* Position the sign below the lanterns so it doesn’t overlap them.
+   * Use viewport units so the spacing scales with screen height.  On
+   * narrow screens the top margin increases slightly via a media query.
+   */
+  top: 8vh;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -183,7 +186,10 @@ body {
 
 /* make the sign larger so it fills more of the screen and touches the top */
 #splash-screen .sign {
-  width: 95%;
+  /* Make the sign responsive: fill most of the width but leave space
+   * between the lanterns.  The max-width prevents it from being too
+   * large on wide screens. */
+  width: 90%;
   max-width: 900px;
   height: auto;
 }
@@ -191,8 +197,10 @@ body {
 /* style and position the enter button on the sign underneath the text */
 #enter-btn {
   position: absolute;
-  /* Place the button roughly two‑thirds of the way down the sign */
-  top: 75%;
+  /* Place the button near the bottom of the sign.  The top value controls
+   * how far down the button sits.  Adjusting this value spaces the
+   * button evenly between the sign’s top text and the red base. */
+  top: 80%;
   left: 50%;
   transform: translateX(-50%);
   padding: 8px 20px;
@@ -203,6 +211,22 @@ body {
   border-radius: 6px;
   cursor: pointer;
   z-index: 1;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 768px) {
+  #splash-screen .sign-wrapper {
+    top: 12vh;
+  }
+  #splash-screen .sign {
+    width: 90%;
+    max-width: 700px;
+  }
+  #enter-btn {
+    top: 85%;
+    font-size: 16px;
+    padding: 6px 18px;
+  }
 }
 
 .main-text {

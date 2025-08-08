@@ -4,7 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const plusOne = document.getElementById('plus-one');
   const introScreen = document.getElementById('intro-screen');
   const splashScreen = document.getElementById('splash-screen');
-  const bgMusic = document.getElementById('bg-music');
+      const bgMusic = document.getElementById('bg-music');
+      // Ensure the background music loops indefinitely.  Without this the
+      // track will stop after it finishes playing once.  Setting
+      // `loop = true` makes the audio element automatically restart.
+      if (bgMusic) {
+        bgMusic.loop = true;
+      }
 
   dumpling.addEventListener('click', () => {
     dumpling.classList.add('clicked');
