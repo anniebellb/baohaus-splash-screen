@@ -171,11 +171,9 @@ body {
 /* centre the sign near the bottom of the splash screen */
 #splash-screen .sign-wrapper {
   position: absolute;
-  /* Position the sign below the lanterns so it doesn’t overlap them.
-   * Use viewport units so the spacing scales with screen height.  On
-   * narrow screens the top margin increases slightly via a media query.
-   */
-  top: 8vh;
+  /* Place the sign so its rope touches the very top of the viewport.
+   * This ensures the rope stays anchored at the top on all screen sizes. */
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -186,11 +184,11 @@ body {
 
 /* make the sign larger so it fills more of the screen and touches the top */
 #splash-screen .sign {
-  /* Make the sign responsive: fill most of the width but leave space
-   * between the lanterns.  The max-width prevents it from being too
-   * large on wide screens. */
-  width: 90%;
-  max-width: 900px;
+  /* Make the sign responsive: fill a reasonable portion of the width so it
+   * doesn't collide with the lanterns even when its rope touches the top.
+   * The max-width prevents it from being too large on wide screens. */
+  width: 80%;
+  max-width: 800px;
   height: auto;
 }
 
@@ -206,7 +204,8 @@ body {
   padding: 8px 20px;
   font-size: 18px;
   border: none;
-  background-color: #683C33;
+  /* Use the requested color for the button */
+  background-color: #C23810;
   color: #fff;
   border-radius: 6px;
   cursor: pointer;
@@ -216,11 +215,12 @@ body {
 /* Responsive adjustments for small screens */
 @media (max-width: 768px) {
   #splash-screen .sign-wrapper {
-    top: 12vh;
+    /* Keep the rope anchored to the top on small screens too */
+    top: 0;
   }
   #splash-screen .sign {
-    width: 90%;
-    max-width: 700px;
+    width: 80%;
+    max-width: 600px;
   }
   #enter-btn {
     top: 85%;
