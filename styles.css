@@ -94,6 +94,111 @@ body {
   to { opacity: 1; }
 }
 
+/*
+ * Layout rules for the second splash screen.
+ * Without explicit positioning the splash screen elements sit below
+ * the intro content in the normal document flow.  Because the body has
+ * `overflow: hidden` and a fixed height, the second screen ends up
+ * off‑canvas and therefore invisible once the intro fades out.  These
+ * styles make the splash screen fill the viewport and centre its
+ * contents so that the background, sign, rocks and lanterns become
+ * visible when the `hidden` class is removed and `fade-in` is applied.
+ */
+
+#splash-screen {
+  /*
+   * Position the splash screen so it sits on top of the intro screen.  Do
+   * not set a display value here; the `.hidden` class uses
+   * `display: none` to hide this element by default.  Setting a display on
+   * the id selector would override `.hidden` because id selectors have
+   * higher specificity.
+   */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* container holds all splash images */
+#splash-screen .container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* full‑screen background image */
+#splash-screen .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* position the rocks image along the bottom */
+#splash-screen .rocks {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+/* position the left and right lanterns near the top corners */
+#splash-screen .lantern.left {
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  width: 15%;
+  max-width: 200px;
+}
+
+#splash-screen .lantern.right {
+  position: absolute;
+  top: 15%;
+  right: 5%;
+  width: 15%;
+  max-width: 200px;
+}
+
+/* centre the sign near the bottom of the splash screen */
+#splash-screen .sign-wrapper {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* scale the sign image so it fits on smaller screens */
+#splash-screen .sign {
+  width: 80%;
+  max-width: 600px;
+  height: auto;
+}
+
+/* style and position the enter button on top of the sign */
+#enter-btn {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 28px;
+  font-size: 22px;
+  border: none;
+  background-color: #683C33;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1;
+}
+
 .main-text {
   font-family: 'Merienda One', cursive;
   font-size: 25px;
