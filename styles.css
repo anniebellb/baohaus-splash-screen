@@ -190,7 +190,9 @@ body {
    * max-width allows the sign to scale up on large monitors and 4K
    * displays without appearing tiny. */
   /* Slightly shrink the sign so that the lanterns don’t touch its edges. */
-  width: 85%;
+  /* Shrink the sign slightly so it doesn’t dominate the screen or crowd
+   * the lanterns. */
+  width: 83%;
   max-width: 1400px;
   height: auto;
 }
@@ -202,7 +204,10 @@ body {
    * “Welcome to baohaus” text and the red wooden base of the sign.  A
    * top value of around two‑thirds positions it in this middle space.
    * Adjustments for small screens are provided in the media query below. */
-  top: 68%;
+  /* Position the button a little lower on the sign so it sits more
+   * evenly between the “Welcome to baohaus” text and the red wooden
+   * trim at the bottom. */
+  top: 70%;
   left: 50%;
   transform: translateX(-50%);
   padding: 8px 20px;
@@ -227,13 +232,13 @@ body {
   #splash-screen .sign {
     /* Reduce the width further on very small screens so that the
      * lanterns and sign remain well‑spaced. */
-    width: 80%;
-    max-width: 550px;
+    width: 78%;
+    max-width: 520px;
   }
   #enter-btn {
     /* Lower the button further down the sign on small screens so it
      * remains centred between the welcome text and the wooden base. */
-    top: 75%;
+    top: 72%;
     font-size: 16px;
     padding: 6px 18px;
   }
