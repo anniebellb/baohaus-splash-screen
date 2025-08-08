@@ -108,18 +108,26 @@ body {
 }
 
 @keyframes slideLeft {
-  from { transform: translateX(-100%); opacity: 0; }
+  /* Move an element from completely off the left edge (beyond its full
+   * width) into its natural position.  Using -150% ensures the
+   * lantern is not visible until the animation begins. */
+  from { transform: translateX(-150%); opacity: 0; }
   to   { transform: translateX(0);      opacity: 1; }
 }
 
 @keyframes slideRight {
-  from { transform: translateX(100%); opacity: 0; }
+  /* Move an element from completely off the right edge into place.
+   * 150% ensures it starts fully off‑screen. */
+  from { transform: translateX(150%); opacity: 0; }
   to   { transform: translateX(0);     opacity: 1; }
 }
 
 @keyframes slideDown {
-  from { transform: translateY(-100%); opacity: 0; }
-  to   { transform: translateY(0);      opacity: 1; }
+  /* Move an element down from above the viewport while keeping it
+   * horizontally centred.  The horizontal translateX(-50%) remains
+   * constant so the sign stays centred after the animation. */
+  from { transform: translateX(-50%) translateY(-100%); opacity: 0; }
+  to   { transform: translateX(-50%) translateY(0);      opacity: 1; }
 }
 
 /*
@@ -179,9 +187,15 @@ body {
    * transform property is reset in the keyframes.  Animation fill mode
    * forwards ensures the final state persists after the animation
    * completes. */
+  /* Keep the rocks completely hidden and off‑screen until the animation
+   * begins.  Setting both the transform and opacity here ensures that
+   * during the animation delay the rocks are not visible.  The
+   * animation-fill-mode of both applies the first keyframe before the
+   * animation starts and the last keyframe after it finishes. */
   transform: translateY(100%);
-  animation: slideUp 1s ease-out forwards;
-  animation-delay: 3s;
+  opacity: 0;
+  animation: slideUp 1s ease-out both;
+  animation-delay: 1s;
 }
 
 /* position the left and right lanterns near the top corners */
@@ -196,10 +210,14 @@ body {
   width: 16%;
   max-width: 200px;
 
-  /* Slide the left lantern in from the left side after a delay */
-  transform: translateX(-100%);
-  animation: slideLeft 1s ease-out forwards;
-  animation-delay: 6s;
+  /* Start completely off‑screen to the left and hidden.  The
+   * animation will bring the lantern into view.  The fill mode
+   * "both" ensures the lantern stays off‑screen until the delay
+   * passes and remains in its final position afterwards. */
+  transform: translateX(-150%);
+  opacity: 0;
+  animation: slideLeft 1s ease-out both;
+  animation-delay: 3s;
 }
 
 #splash-screen .lantern.right {
@@ -209,10 +227,14 @@ body {
   width: 16%;
   max-width: 200px;
 
-  /* Slide the right lantern in from the right side after a delay */
-  transform: translateX(100%);
-  animation: slideRight 1s ease-out forwards;
-  animation-delay: 6s;
+  /* Start completely off‑screen to the right and hidden.  The
+   * animation will bring the lantern into view.  The fill mode
+   * "both" ensures the lantern stays off‑screen until the delay
+   * passes and remains in its final position afterwards. */
+  transform: translateX(150%);
+  opacity: 0;
+  animation: slideRight 1s ease-out both;
+  animation-delay: 3s;
 }
 
 /* centre the sign near the bottom of the splash screen */
@@ -230,9 +252,13 @@ body {
   /* Slide the entire sign (with its button) down from the top after
    * other elements have animated in.  The transform set here will be
    * overridden by the keyframes. */
+  /* Keep the sign off‑screen above and hidden until it animates into
+   * view.  The fill mode "both" applies the starting transform and
+   * opacity during the delay and keeps the final state afterwards. */
   transform: translateX(-50%) translateY(-100%);
-  animation: slideDown 1s ease-out forwards;
-  animation-delay: 12s;
+  opacity: 0;
+  animation: slideDown 1s ease-out both;
+  animation-delay: 5s;
 }
 
 /* make the sign larger so it fills more of the screen and touches the top */
