@@ -156,16 +156,17 @@ body {
    */
   top: 0;
   left: 3%;
-  width: 18%;
-  max-width: 250px;
+  /* Reduce lantern size slightly so they don’t crowd the sign */
+  width: 16%;
+  max-width: 200px;
 }
 
 #splash-screen .lantern.right {
   position: absolute;
   top: 0;
   right: 3%;
-  width: 18%;
-  max-width: 250px;
+  width: 16%;
+  max-width: 200px;
 }
 
 /* centre the sign near the bottom of the splash screen */
@@ -188,8 +189,9 @@ body {
    * leaving enough horizontal space for the hanging lanterns.  A larger
    * max-width allows the sign to scale up on large monitors and 4K
    * displays without appearing tiny. */
-  width: 88%;
-  max-width: 1600px;
+  /* Slightly shrink the sign so that the lanterns don’t touch its edges. */
+  width: 85%;
+  max-width: 1400px;
   height: auto;
 }
 
@@ -223,10 +225,10 @@ body {
     top: 0;
   }
   #splash-screen .sign {
-    /* Slightly reduce the width on very small screens to prevent the
-     * sign from colliding with the lanterns. */
-    width: 85%;
-    max-width: 600px;
+    /* Reduce the width further on very small screens so that the
+     * lanterns and sign remain well‑spaced. */
+    width: 80%;
+    max-width: 550px;
   }
   #enter-btn {
     /* Lower the button further down the sign on small screens so it
