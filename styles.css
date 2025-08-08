@@ -195,7 +195,8 @@ body {
   transform: translateY(100%);
   opacity: 0;
   animation: slideUp 1s ease-out both;
-  animation-delay: 1s;
+  /* Use a shorter delay so the rocks begin moving almost immediately */
+  animation-delay: 0.3s;
 }
 
 /* position the left and right lanterns near the top corners */
@@ -217,7 +218,8 @@ body {
   transform: translateX(-150%);
   opacity: 0;
   animation: slideLeft 1s ease-out both;
-  animation-delay: 3s;
+  /* Start sliding in shortly after the rocks */
+  animation-delay: 1s;
 }
 
 #splash-screen .lantern.right {
@@ -234,7 +236,8 @@ body {
   transform: translateX(150%);
   opacity: 0;
   animation: slideRight 1s ease-out both;
-  animation-delay: 3s;
+  /* Start sliding in shortly after the rocks */
+  animation-delay: 1s;
 }
 
 /* centre the sign near the bottom of the splash screen */
@@ -258,7 +261,8 @@ body {
   transform: translateX(-50%) translateY(-100%);
   opacity: 0;
   animation: slideDown 1s ease-out both;
-  animation-delay: 5s;
+  /* Bring the sign down sooner so it appears 3 seconds after the rocks */
+  animation-delay: 3s;
 }
 
 /* make the sign larger so it fills more of the screen and touches the top */
