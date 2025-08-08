@@ -211,7 +211,10 @@ body {
   /* Position the button closer to the midpoint between the “Welcome to baohaus” text
    * and the red wooden base.  A value around 65% centres it in that
    * vertical space. */
-  top: 65%;
+  /* Move the button further down so it sits closer to the red wooden
+   * bottom.  A value around 72% provides more distance below the
+   * welcome text while keeping it above the base. */
+  top: 72%;
   left: 50%;
   transform: translateX(-50%);
   padding: 8px 20px;
@@ -242,7 +245,7 @@ body {
   #enter-btn {
     /* Lower the button further down the sign on small screens so it
      * remains centred between the welcome text and the wooden base. */
-    top: 70%;
+    top: 78%;
     font-size: 16px;
     padding: 6px 18px;
   }
