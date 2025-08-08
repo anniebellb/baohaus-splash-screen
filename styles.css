@@ -151,50 +151,56 @@ body {
 /* position the left and right lanterns near the top corners */
 #splash-screen .lantern.left {
   position: absolute;
-  top: 15%;
-  left: 5%;
-  width: 15%;
-  max-width: 200px;
+  /* Anchor the lanterns at the top of the page so they appear to hang from
+   * the top edge. A small left margin keeps them slightly in from the edge.
+   */
+  top: 0;
+  left: 3%;
+  width: 18%;
+  max-width: 250px;
 }
 
 #splash-screen .lantern.right {
   position: absolute;
-  top: 15%;
-  right: 5%;
-  width: 15%;
-  max-width: 200px;
+  top: 0;
+  right: 3%;
+  width: 18%;
+  max-width: 250px;
 }
 
 /* centre the sign near the bottom of the splash screen */
 #splash-screen .sign-wrapper {
   position: absolute;
-  bottom: 10%;
+  /* Place the sign at the very top of the splash screen and centre it */
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* scale the sign image so it fits on smaller screens */
+/* make the sign larger so it fills more of the screen and touches the top */
 #splash-screen .sign {
-  width: 80%;
-  max-width: 600px;
+  width: 95%;
+  max-width: 900px;
   height: auto;
 }
 
-/* style and position the enter button on top of the sign */
+/* style and position the enter button on the sign underneath the text */
 #enter-btn {
   position: absolute;
-  bottom: 5%;
+  /* Place the button roughly two‑thirds of the way down the sign */
+  top: 75%;
   left: 50%;
   transform: translateX(-50%);
-  padding: 12px 28px;
-  font-size: 22px;
+  padding: 8px 20px;
+  font-size: 18px;
   border: none;
   background-color: #683C33;
   color: #fff;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
   z-index: 1;
 }
